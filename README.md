@@ -8,10 +8,10 @@
 - Cancellation support
 
 ## Setup
-rails db:create db:migrate
-rails s
+- rails db:create db:migrate
+- rails s
 
 ## Endpoints
-POST /api/v1/requests
-GET /api/v1/requests/:id
-POST /api/v1/requests/:id/cancel
+- POST /api/v1/requests
+- GET /api/v1/requests/:id
+- POST /api/v1/requests/:id/cancel
