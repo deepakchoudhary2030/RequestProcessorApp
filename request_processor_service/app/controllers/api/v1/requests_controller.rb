@@ -28,6 +28,17 @@ class Api::V1::RequestsController < ApplicationController
     end
 
     def cancel
+        request = Request.find_by(request_id: params[:id])
+
+        return render json: { error: "Not found" }, status: :not_found unless request
+
+        if request.completed?
+          return render json: { message: "Already completed" }, status: :unprocessable_entity
+        end
+
+        request.update(status: "cancelled")
+
+        render json: { message: "Request cancelled" }
     end
 
     private
