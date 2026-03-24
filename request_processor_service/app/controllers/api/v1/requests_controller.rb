@@ -18,7 +18,13 @@ class Api::V1::RequestsController < ApplicationController
     end
     
     def show
-    
+        request = Request.find_by(request_id: params[:id])
+
+        if request
+          render json: request
+        else
+          render json: { error: "Not found" }, status: :not_found
+        end
     end
 
     def cancel
